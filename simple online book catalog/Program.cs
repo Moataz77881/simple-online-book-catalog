@@ -1,8 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using simple_online_book_catalog.Data;
+using simple_online_book_catalog.IServices.Services;
 using simple_online_book_catalog.Mappings;
+using simple_online_book_catalog.Middelweres;
 using simple_online_book_catalog.Repository;
 using simple_online_book_catalog.Repository.RepositoryInterfaces;
+using simple_online_book_catalog.Services.IServices;
+using simple_online_book_catalog.Services.ServiceRepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +23,8 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("SimpleOnlinebook
 builder.Services.AddScoped<IAuthor, AuthorRepo>();
 builder.Services.AddScoped<IGenres, GenresRepo>();
 builder.Services.AddScoped<IBook, BookRepo>();
+builder.Services.AddScoped<IAuthorService, AuthorServiceRepo>();
+builder.Services.AddScoped<IBookService, BookServiceRepo>();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
@@ -30,6 +36,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<profilingMiddelwere>();
 
 app.UseHttpsRedirection();
 

@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using simple_online_book_catalog.Data;
 using simple_online_book_catalog.Models;
 using simple_online_book_catalog.Repository.RepositoryInterfaces;
@@ -21,10 +23,35 @@ namespace simple_online_book_catalog.Repository
             return books;
         }
 
+        public async Task<Books?> deleteBook(Guid id)
+        {
+            var Book = await dbContext.Books.FirstOrDefaultAsync(x => x.Id == id);
+            if (Book != null)
+            {
+                dbContext.Books.Remove(Book);
+                await dbContext.SaveChangesAsync();
+                return Book;
+            }
+            return null;
+        }
+
         public async Task<List<Books>> getAllBooks()
         {
              var books = dbContext.Books.Include("Genres").Include("Authors");
             return await books.ToListAsync();
+        }
+
+        public async Task<Books> updateBook(Books book, Guid id)
+        {
+            var bookExist = await dbContext.Books.FirstOrDefaultAsync(x => x.Id == id);
+            if(bookExist == null) { return null; }
+            bookExist.Name = book.Name;
+            bookExist.numberOfPages = book.numberOfPages;
+            bookExist.imageOfBook = book.imageOfBook;
+            bookExist.genresId = book.genresId;
+            bookExist.authorId = book.authorId;
+            await dbContext.SaveChangesAsync();
+            return bookExist;
         }
     }
 }
