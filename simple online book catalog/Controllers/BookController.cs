@@ -1,9 +1,6 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using simple_online_book_catalog.CustomActionFilter;
 using simple_online_book_catalog.models.DTOModel.BookDTO;
-using simple_online_book_catalog.Models;
-using simple_online_book_catalog.Repository.RepositoryInterfaces;
 using simple_online_book_catalog.Services.IServices;
 
 namespace simple_online_book_catalog.Controllers

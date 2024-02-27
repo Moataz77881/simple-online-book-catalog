@@ -1,10 +1,7 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using simple_online_book_catalog.CustomActionFilter;
 using simple_online_book_catalog.models.DTOModel.GenresDTO;
-using simple_online_book_catalog.Models;
-using simple_online_book_catalog.Repository.RepositoryInterfaces;
+using simple_online_book_catalog.Services.IServices;
 
 namespace simple_online_book_catalog.Controllers
 {
@@ -12,28 +9,24 @@ namespace simple_online_book_catalog.Controllers
     [ApiController]
     public class GenresController : ControllerBase
     {
-        private readonly IGenres genresRepo;
-        private readonly IMapper mapper;
+        private readonly IGenresService genresService;
 
-        public GenresController(IGenres genresRepo,IMapper mapper)
+        public GenresController(IGenresService genresService)
         {
-            this.genresRepo = genresRepo;
-            this.mapper = mapper;
+            this.genresService = genresService;
         }
 
         [HttpPost]
         [ValidateModel]
         public async Task<IActionResult> createGenre([FromBody] CreateGenre genreDTO) {
 
-            var domain = await genresRepo.CreateGenre(mapper.Map<Genres>(genreDTO));
-            return Ok(domain);
+            return Ok(await genresService.createGenre(genreDTO));
         }
 
         [HttpGet]
         public async Task<IActionResult> getAllGenres() {
 
-            var DomainData =  await genresRepo.getAllGenresAsync();
-            return Ok(mapper.Map<List<GetGenresDTO>>(DomainData));
+            return Ok(await genresService.getAllGenres());
         }
 
         [HttpPut]
@@ -41,19 +34,16 @@ namespace simple_online_book_catalog.Controllers
         [ValidateModel]
         public async Task<IActionResult> updateGenres([FromRoute]Guid id, [FromBody]CreateGenre genre) {
 
-            var domain = mapper.Map<Genres>(genre);
-            var updatedGenre = await genresRepo.updateGenre(id,domain);
-            if (updatedGenre == null) return NotFound();
-            return Ok(mapper.Map<GetGenresDTO>(updatedGenre));
+            return Ok(await genresService.updateGenre(genre, id));
         }
 
         [HttpDelete]
         [Route("{id:Guid}")]
         public async Task<IActionResult> deleteGenre([FromRoute] Guid id) {
-            
-            var updatedData = await genresRepo.deleteGenre(id);
-            if (updatedData == null) return NotFound();
-            return Ok(mapper.Map<GetGenresDTO>(updatedData));
+         
+            var genreDeleted = await genresService.deleteGenre(id);
+            if(genreDeleted == null) return NotFound();
+            return Ok("Genre deleted"); 
         }
     }
 }
