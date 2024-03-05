@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using simple_online_book_catalog.models.DomainModel;
 using simple_online_book_catalog.models.DTOModel.AuthorDTOs;
 using simple_online_book_catalog.models.DTOModel.BookDTO;
 using simple_online_book_catalog.models.DTOModel.GenresDTO;
+using simple_online_book_catalog.models.DTOModel.ImageDTO;
 using simple_online_book_catalog.Models;
 
 namespace simple_online_book_catalog.Mappings
@@ -20,6 +22,9 @@ namespace simple_online_book_catalog.Mappings
                 //.ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors))
                 .ReverseMap();
             CreateMap<Books, BookDTO>().ReverseMap();
+            CreateMap<Image, ImagesDTO>().ReverseMap();
+            CreateMap<Image, responseImageDTO>().ReverseMap();
+
         }
     }
 }

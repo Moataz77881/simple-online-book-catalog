@@ -18,25 +18,29 @@ namespace simple_online_book_catalog.Controllers
 
         [HttpPost]
         [ValidateModel]
-        public async Task<IActionResult> createBook([FromBody] CreateBookDTO book) {
+        public async Task<IActionResult> createBook([FromBody] CreateBookDTO book)
+        {
 
             return Ok(await bookService.createBookService(book));
         }
         [HttpGet]
-        public async Task<IActionResult> getAllBooks() {
-            
+        public async Task<IActionResult> getAllBooks()
+        {
+
             return Ok(await bookService.getAllBooksService());
         }
         [HttpPut]
         [Route("{id:Guid}")]
         [ValidateModel]
-        public async Task<IActionResult> updateBook([FromRoute] Guid id,[FromBody] CreateBookDTO updateBook) {
+        public async Task<IActionResult> updateBook([FromRoute] Guid id, [FromBody] CreateBookDTO updateBook)
+        {
 
             return Ok(await bookService.updatebookService(updateBook, id));
         }
         [HttpDelete]
         [Route("{id:Guid}")]
-        public async Task<IActionResult> deleteBook([FromRoute] Guid id) {
+        public async Task<IActionResult> deleteBook([FromRoute] Guid id)
+        {
 
             return Ok(await bookService.deleteBook(id));
         }

@@ -12,8 +12,8 @@ using simple_online_book_catalog.Data;
 namespace simple_online_book_catalog.Migrations
 {
     [DbContext(typeof(SimOnBookDbContext))]
-    [Migration("20240123123316_simOnBookMigration")]
-    partial class simOnBookMigration
+    [Migration("20240305161044_SimOnlineBookMigration")]
+    partial class SimOnlineBookMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,6 +59,9 @@ namespace simple_online_book_catalog.Migrations
                     b.Property<Guid>("genresId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("imageId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("imageOfBook")
                         .HasColumnType("nvarchar(max)");
 
@@ -70,6 +73,9 @@ namespace simple_online_book_catalog.Migrations
                     b.HasIndex("authorId");
 
                     b.HasIndex("genresId");
+
+                    b.HasIndex("imageId")
+                        .IsUnique();
 
                     b.ToTable("Books");
                 });
@@ -89,6 +95,38 @@ namespace simple_online_book_catalog.Migrations
                     b.ToTable("Genres");
                 });
 
+            modelBuilder.Entity("simple_online_book_catalog.models.DomainModel.Image", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("bookId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("fileDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("fileExtension")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("fileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("filePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("fileSize")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Images");
+                });
+
             modelBuilder.Entity("simple_online_book_catalog.Models.Books", b =>
                 {
                     b.HasOne("simple_online_book_catalog.Models.Authors", "Authors")
@@ -103,9 +141,17 @@ namespace simple_online_book_catalog.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("simple_online_book_catalog.models.DomainModel.Image", "Image")
+                        .WithOne("books")
+                        .HasForeignKey("simple_online_book_catalog.Models.Books", "imageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Authors");
 
                     b.Navigation("Genres");
+
+                    b.Navigation("Image");
                 });
 
             modelBuilder.Entity("simple_online_book_catalog.Models.Authors", b =>
@@ -116,6 +162,12 @@ namespace simple_online_book_catalog.Migrations
             modelBuilder.Entity("simple_online_book_catalog.Models.Genres", b =>
                 {
                     b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("simple_online_book_catalog.models.DomainModel.Image", b =>
+                {
+                    b.Navigation("books")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

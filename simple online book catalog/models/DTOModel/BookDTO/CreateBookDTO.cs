@@ -14,5 +14,8 @@ namespace simple_online_book_catalog.models.DTOModel.BookDTO
         public Guid genresId { get; set; }
         [Required]
         public Guid authorId { get; set; }
+
+        [Required]
+        public Guid imageId { get; set; }
     }
 }

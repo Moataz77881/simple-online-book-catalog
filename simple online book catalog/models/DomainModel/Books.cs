@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿
+using simple_online_book_catalog.models.DomainModel;
 
 namespace simple_online_book_catalog.Models
 {
@@ -14,8 +15,11 @@ namespace simple_online_book_catalog.Models
 
  //       [ForeignKey("Authors")]
         public Guid authorId { get; set; } //one author many book
-        
+
+        public Guid imageId { get; set; }
+
         public Genres Genres { get; set; }
         public Authors Authors { get; set; }
+        public Image Image { get; set; }
     }
 }

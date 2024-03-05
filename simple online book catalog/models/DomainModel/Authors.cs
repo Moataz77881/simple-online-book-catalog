@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿
 namespace simple_online_book_catalog.Models
 {
     public class Authors
@@ -8,6 +7,6 @@ namespace simple_online_book_catalog.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
         public  string? photoOfTheAuthor { get; set; }
-        public ICollection<Books> Books { get; set; }
+        public List<Books> Books { get; set; }
     }
 }

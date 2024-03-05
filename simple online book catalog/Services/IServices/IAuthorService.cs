@@ -8,6 +8,6 @@ namespace simple_online_book_catalog.Services.IServices
         public Task<List<getAuthorDTO>> getAllAuthorService();
         public Task<getAuthorDTO> createAuthor(createAuthorDTO authorDTO);
         public Task<getAuthorDTO?> updateAuthor(Guid id, createAuthorDTO createAuthorDTO);
-        public Task<getAuthorDTO> removeAuther(Guid id);
+        public Task<getAuthorDTO> removeAuthor(Guid id);
     }
 }
