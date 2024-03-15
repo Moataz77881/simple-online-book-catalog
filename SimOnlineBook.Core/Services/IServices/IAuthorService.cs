@@ -1,5 +1,4 @@
 ﻿using simple_online_book_catalog.models.DTOModel.AuthorDTOs;
-using simple_online_book_catalog.Models;
 
 namespace simple_online_book_catalog.Services.IServices
 {

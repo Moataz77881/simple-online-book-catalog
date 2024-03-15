@@ -1,5 +1,4 @@
-﻿using simple_online_book_catalog.models.DomainModel;
-using simple_online_book_catalog.models.DTOModel.ImageDTO;
+﻿using simple_online_book_catalog.models.DTOModel.ImageDTO;
 
 namespace simple_online_book_catalog.Services.IServices
 {

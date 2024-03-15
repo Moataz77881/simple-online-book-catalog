@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using simple_online_book_catalog.Data;
 using simple_online_book_catalog.Models;
 using simple_online_book_catalog.Repository.RepositoryInterfaces;

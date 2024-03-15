@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "simple online book catalog", "simple online book catalog\simple online book catalog.csproj", "{2100CFAD-627F-43C9-A0F3-55191D8F61A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "simple online book catalog", "simple online book catalog\simple online book catalog.csproj", "{2100CFAD-627F-43C9-A0F3-55191D8F61A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimOnlineBook.Models", "SimOnlineBook.Models\SimOnlineBook.Models.csproj", "{8CC7558F-6A10-4EE4-BBAD-E4622F7EC9BC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimOnlineBook.DataAccess", "SimOnlineBook.DataAccess\SimOnlineBook.DataAccess.csproj", "{EBF1F37B-6191-45EA-8A7A-120CE89E3E84}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimOnlineBook.DataAccess.Test", "SimOnlineBook.DataAccess.Test\SimOnlineBook.DataAccess.Test.csproj", "{3099D90F-18D3-4811-B0F8-8F1BB67F59B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimOnlineBook.Core", "SimOnlineBook.Core\SimOnlineBook.Core.csproj", "{CFD56594-58D4-41E2-98A6-12CEB97C7F7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{2100CFAD-627F-43C9-A0F3-55191D8F61A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2100CFAD-627F-43C9-A0F3-55191D8F61A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2100CFAD-627F-43C9-A0F3-55191D8F61A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CC7558F-6A10-4EE4-BBAD-E4622F7EC9BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CC7558F-6A10-4EE4-BBAD-E4622F7EC9BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CC7558F-6A10-4EE4-BBAD-E4622F7EC9BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CC7558F-6A10-4EE4-BBAD-E4622F7EC9BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBF1F37B-6191-45EA-8A7A-120CE89E3E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBF1F37B-6191-45EA-8A7A-120CE89E3E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBF1F37B-6191-45EA-8A7A-120CE89E3E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBF1F37B-6191-45EA-8A7A-120CE89E3E84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3099D90F-18D3-4811-B0F8-8F1BB67F59B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3099D90F-18D3-4811-B0F8-8F1BB67F59B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3099D90F-18D3-4811-B0F8-8F1BB67F59B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3099D90F-18D3-4811-B0F8-8F1BB67F59B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD56594-58D4-41E2-98A6-12CEB97C7F7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD56594-58D4-41E2-98A6-12CEB97C7F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD56594-58D4-41E2-98A6-12CEB97C7F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD56594-58D4-41E2-98A6-12CEB97C7F7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

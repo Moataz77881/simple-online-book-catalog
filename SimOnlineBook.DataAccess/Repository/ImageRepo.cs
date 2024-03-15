@@ -1,4 +1,7 @@
-﻿using simple_online_book_catalog.Data;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using simple_online_book_catalog.Data;
 using simple_online_book_catalog.models.DomainModel;
 using simple_online_book_catalog.Repository.RepositoryInterfaces;
 

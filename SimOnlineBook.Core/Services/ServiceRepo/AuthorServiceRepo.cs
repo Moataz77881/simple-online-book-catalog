@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 using simple_online_book_catalog.models.DTOModel.AuthorDTOs;
 using simple_online_book_catalog.Models;
 using simple_online_book_catalog.Repository.RepositoryInterfaces;
