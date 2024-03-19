@@ -38,9 +38,9 @@ namespace simple_online_book_catalog.Repository
 
             var domainData = await dbContext.Authors.FirstOrDefaultAsync(x => x.Id == id);
             if (domainData == null) return null;
-            dbContext.Authors.Remove(domainData);
+            var result = dbContext.Authors.Remove(domainData);
             await dbContext.SaveChangesAsync();
-            return domainData;
+            return result.Entity;
         }
 
         public async Task<Authors?> updateAuthor(Guid id, Authors authors)

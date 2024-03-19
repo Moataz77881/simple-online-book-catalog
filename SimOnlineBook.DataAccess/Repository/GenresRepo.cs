@@ -31,9 +31,9 @@ namespace simple_online_book_catalog.Repository
             var domain = await dbContext.Genres.FirstOrDefaultAsync(x => x.Id == id);
             if (domain == null) return null;
 
-            dbContext.Genres.Remove(domain);
+            var result = dbContext.Genres.Remove(domain);
             await dbContext.SaveChangesAsync();
-            return domain;
+            return result.Entity;
         }
 
         public async Task<List<Genres>> getAllGenresAsync()

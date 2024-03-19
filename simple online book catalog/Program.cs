@@ -30,6 +30,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<SimOnBookDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("SimpleOnlinebookCatalog")));
 
+
 builder.Services.AddScoped<IAuthor, AuthorRepo>();
 builder.Services.AddScoped<IGenres, GenresRepo>();
 builder.Services.AddScoped<IBook, BookRepo>();
@@ -57,6 +58,8 @@ app.UseMiddleware<profilingMiddelwere>();
 
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

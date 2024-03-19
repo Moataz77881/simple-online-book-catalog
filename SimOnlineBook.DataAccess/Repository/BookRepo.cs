@@ -32,9 +32,9 @@ namespace simple_online_book_catalog.Repository
             var Book = await dbContext.Books.FirstOrDefaultAsync(x => x.Id == id);
             if (Book != null)
             {
-                dbContext.Books.Remove(Book);
+                var Result = dbContext.Books.Remove(Book);
                 await dbContext.SaveChangesAsync();
-                return Book;
+                return Result.Entity;
             }
             return null;
         }
@@ -43,7 +43,11 @@ namespace simple_online_book_catalog.Repository
         {
             logger.LogInformation("you are in getAllBooks repository");
 
-            var books = await dbContext.Books.Include(x=> x.Genres).Include(x=>x.Authors).Include(x=>x.Image).ToListAsync();
+            var books = await dbContext.Books
+                .Include(x=> x.Genres)
+                .Include(x=>x.Authors)
+                .Include(x=>x.Image)
+                .ToListAsync();
             return books;
         }
 

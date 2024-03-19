@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimOnlineBook.DataAccess.Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimOnlineBook.Core", "SimOnlineBook.Core\SimOnlineBook.Core.csproj", "{CFD56594-58D4-41E2-98A6-12CEB97C7F7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimOnlineBook.Core.Test", "SimOnlineBook.Core.Test\SimOnlineBook.Core.Test.csproj", "{6C03B5A8-5DC0-452E-8314-CDFC0E7154C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimOnlineBook.Core.Test", "SimOnlineBook.Core.Test\SimOnlineBook.Core.Test.csproj", "{6C03B5A8-5DC0-452E-8314-CDFC0E7154C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{9AEB2E0C-A2EF-4D0D-866C-3EF072634B1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +50,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3099D90F-18D3-4811-B0F8-8F1BB67F59B7} = {9AEB2E0C-A2EF-4D0D-866C-3EF072634B1A}
+		{6C03B5A8-5DC0-452E-8314-CDFC0E7154C4} = {9AEB2E0C-A2EF-4D0D-866C-3EF072634B1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {75E8C666-21C6-44C1-9D8B-FCC9E5CB9D3D}
